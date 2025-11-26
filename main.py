@@ -2,17 +2,18 @@
 
 # BookBot is my first [Boot.dev](https://www.boot.dev) project!
 #
-from stats import get_charachter_sum, get_num_words, sort_chars
+from stats import Bookbot
 
 frankenstein_path = "books/frankenstein.txt"
 
 
 def main():
-    number_of_words = get_num_words(frankenstein_path)
-    db = get_charachter_sum(frankenstein_path)
+    book = Bookbot(frankenstein_path)
+    number_of_words = book.get_num_words_in_text()
+    db = book.get_charachter_sum()
 
     if db is not None:
-        sorted = sort_chars(db)
+        sorted = book.get_charachter_sum_sorted_and_flatened()
         print("============ BOOKBOT ============")
         print(f"Analyzing book found at {frankenstein_path}...")
         print("----------- Word Count ----------")
